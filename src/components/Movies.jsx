@@ -4,7 +4,7 @@ export default function Example(){
     const [directors,setDirectors] =useState([]);
     const[direc,setDirec]=useState(""); 
     const[movie,setMovie]=useState("");
-
+    
 const add =() =>{
     if(direc.trim() && movie.trim()){
         setDirectors([...directors,{director:direc.trim(),movies:movie.trim()}]);
