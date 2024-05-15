@@ -1,10 +1,11 @@
 import React,{useState} from 'react';
+import '../components/Movies.css'
 
 export default function Example(){
-    const [directors,setDirectors] =useState([]);
-    const[direc,setDirec]=useState(""); 
+    const [directors,setDirectors] =useState([]); // State to store the list of directors 
+    const[direc,setDirec]=useState(""); // State to store the list of directors 
     const[movie,setMovie]=useState("");
-    
+
 const add =() =>{
     if(direc.trim() && movie.trim()){
         setDirectors([...directors,{director:direc.trim(),movies:movie.trim()}]);
@@ -20,17 +21,17 @@ const remove =(index) =>{
 };
 
 return(
-    <div>
+    <div className='container'>
       <h2> Directors and Movies</h2> 
-      <div>
+      <div className='input'>
         <input type="text" placeholder=" Enter director name " value={direc} onChange={(e) => setDirec(e.target.value)}/>
         <input type="text" placeholder=" Enter Movie name " value={movie} onChange={(e) => setMovie(e.target.value)}/>
         <button onClick={add}>Add</button>
       </div>
       <ul>
         {directors.map((item,index) => (
-<li key={index}><span style={{color:index%2===0?'green':'red'}}>{item.director}</span> <br></br>
-<span>{item.movies}</span>
+<li key={index}><span>{item.director}</span> 
+<li><span>{item.movies}</span></li>
 <button onClick={() => remove(index)}>Remove</button>
 </li>
         ))}
